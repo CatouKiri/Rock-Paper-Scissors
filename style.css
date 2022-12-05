@@ -1,0 +1,20 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+div{
+    display: flex;
+    justify-content: center; 
+}
+
+.header{
+    background-color: orange;
+    margin-bottom: 10px;
+}
+
+button{
+    margin: 10px;
+    width: 150px;
+    padding: 5px;
+}

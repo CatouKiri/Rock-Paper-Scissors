@@ -1,8 +1,58 @@
-
 body {
-    background-image: url(images/rockpaperscissorslizardspock.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-attachment: fixed;
-    background-color: #15133c;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+}
+
+button {
+  width: 100px;
+  padding: 5px 0px;
+  margin: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 50px;
+}
+
+.scoreboard div {
+  display: flex;
+  width: 100%;
+}
+
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player, .computer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  font-size: 50px;
+}
+
+h3 {
+  margin: 30px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

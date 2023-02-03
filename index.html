@@ -4,10 +4,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="index.j"></script>
+        <script src="sample.js" defer></script>
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="header">
+            <h1>ROCK PAPER SCISSORS</h1>
+        </div>
+        <div class="buttons">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissors">Scissors</button>
+        </div>
+        <div class="scoreboard">
+            <h2>SCOREBOARD</h2>
+            <div>
+                <div class="player">
+                    <h3>PLAYER</h3>
+                    <span id="player">0</span>
+                </div>
+                <div class="computer">
+                    <h3>COMPUTER</h3>
+                    <span id="computer">0</span>
+                </div>
+            </div>
+        </div>
+        <div id="result">
+            <h2>RESULT</h2>
+            <div class="result"></div>
+        </div>
     </body>
 </html>

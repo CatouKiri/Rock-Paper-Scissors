@@ -3,7 +3,6 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const result = document.querySelector(".result");
 
-
 rock.addEventListener("click", () => {
   round("rock");
 });
@@ -55,51 +54,70 @@ function round() {
 
 //if player and computer has the same choice
 function tie() {
-    //create a new div under scoreboard to produce the result
-    const content = document.createElement('div');
-    content.textContent = "It's a tie!!!";
-    result.append(content);
+  //create a new div under scoreboard to produce the result
+  const content = document.createElement("div");
+  content.setAttribute('class','score');
+  content.textContent = "It's a tie!!!";
+  result.append(content);
 }
 
 function computerWins() {
-    //add computer winning text
-    const content = document.createElement('div');
-    content.textContent = "Computer scored!!!";
+  //add computer winning text
+  const content = document.createElement("div");
+  content.setAttribute('class','score');
+  content.textContent = "Computer scored!!!";
+  result.append(content);
+  //add score to computer
+  let score = +document.getElementById("computer").textContent;
+  document.getElementById("computer").innerHTML = score + 1;
+  //a different text when computer wins
+  if (score > 3) {
+    content.textContent = "Computer wins!!!";
     result.append(content);
-    //add score to computer
-    let score = +document.getElementById("computer").textContent;
-    document.getElementById("computer").innerHTML = score + 1;
-    //a different text when computer wins
-    if(score > 3) {
-        content.textContent = "Computer wins!!!";
-        result.append(content);
-        disabled();
-    }
+    disabled();
+  }
 }
 
 function playerWins() {
-    //add player winning text
-    const content = document.createElement('div');
-    content.textContent = "Player scored!!!";
+  //add player winning text
+  const content = document.createElement("div");
+  content.setAttribute('class','score');
+  content.textContent = "Player scored!!!";
+  result.append(content);
+  //add score to player
+  let score = +document.getElementById("player").textContent;
+  document.getElementById("player").innerHTML = score + 1;
+  if (score > 3) {
+    content.textContent = "Player wins!!!";
     result.append(content);
-    //add score to player
-    let score = +document.getElementById("player").textContent;
-    document.getElementById("player").innerHTML = score + 1;
-    if(score > 3) {
-        content.textContent = "Player wins!!!";
-        result.append(content);
-        disabled();
-    }
+    disabled();
+  }
 }
 
 //disable buttons after someone wins
 function disabled() {
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
-    const playAgain = document.createElement('button');
-    playAgain.textContent = "CLICK TO PLAY AGAIN!!!";
-    playAgain.setAttribute('style', 'width: 200px;');
-    playAgain.setAttribute('id', 'playAgain');
-    result.append(playAgain);
+  rock.disabled = true;
+  paper.disabled = true;
+  scissors.disabled = true;
+  const playAgain = document.createElement("button");
+  playAgain.textContent = "CLICK TO PLAY AGAIN!!!";
+  playAgain.setAttribute("style", "width: 200px;");
+  playAgain.setAttribute("classs", "replay");
+  playAgain.onclick = function () {
+    replay(playAgain);
+  };
+  result.append(playAgain);
+}
+
+function replay(playAgain) {
+  result.removeChild(playAgain);
+  let score = document.querySelectorAll(".score");
+for (let i = 0; i < score.length; i++) {
+  result.removeChild(score[i]);
+}
+  document.getElementById("player").innerHTML = 0;
+  document.getElementById("computer").innerHTML = 0;
+  rock.disabled = false;
+  paper.disabled = false;
+  scissors.disabled = false;
 }

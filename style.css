@@ -1,6 +1,5 @@
 body {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   margin: 0px;
@@ -52,6 +51,37 @@ h3 {
 }
 
 #result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.history {
+  display: flex;
+  gap: 100px;
+}
+
+.player-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#player-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.computer-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#computer-history {
   display: flex;
   flex-direction: column;
   align-items: center;

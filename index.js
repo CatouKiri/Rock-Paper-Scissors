@@ -2,6 +2,8 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const result = document.querySelector(".result");
+const playerHistory = document.querySelector(".player-history");
+const computerHistory = document.querySelector(".computer-history");
 
 rock.addEventListener("click", () => {
   round("rock");
@@ -25,29 +27,36 @@ function computerChoice() {
 }
 
 //play one round
-function round() {
+function round(player) {
   //get computer choice
   let computer = computerChoice();
-  let player = "rock";
+  const computerH = document.createElement("div");
+  computerH.setAttribute('class','computerH');
+  computerH.textContent = computer;
+  computerHistory.append(computerH);
+  const playerH = document.createElement("div");
+  playerH.setAttribute('class','playerH');
+  playerH.textContent = player;
+  playerHistory.append(playerH);
   if (player == computer) {
     return tie();
   } else if (player == "rock") {
     if (computer == "paper") {
-      return computerWins();
+      return computerWins(player, computer);
     } else {
-      return playerWins();
+      return playerWins(player, computer);
     }
   } else if (player == "paper") {
     if (computer == "scissors") {
-      return computerWins();
+      return computerWins(player, computer);
     } else {
-      return playerWins();
+      return playerWins(player, computer);
     }
   } else if (player == "scissors") {
     if (computer == "rock") {
-      return computerWins();
+      return computerWins(player, computer);
     } else {
-      return playerWins();
+      return playerWins(player, computer);
     }
   }
 }
@@ -61,7 +70,7 @@ function tie() {
   result.append(content);
 }
 
-function computerWins() {
+function computerWins(player, computer) {
   //add computer winning text
   const content = document.createElement("div");
   content.setAttribute('class','score');
@@ -112,8 +121,12 @@ function disabled() {
 function replay(playAgain) {
   result.removeChild(playAgain);
   let score = document.querySelectorAll(".score");
+  let playerH = document.querySelectorAll(".playerH");
+  let computerH = document.querySelectorAll(".computerH");
 for (let i = 0; i < score.length; i++) {
   result.removeChild(score[i]);
+  playerHistory.removeChild(playerH[i]);
+  computerHistory.removeChild(computerH[i]);
 }
   document.getElementById("player").innerHTML = 0;
   document.getElementById("computer").innerHTML = 0;
